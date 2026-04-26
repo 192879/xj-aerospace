@@ -3,35 +3,48 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="xjaerospace 校园招聘官网 - 探索无界，智造未来">
-    <title>xjaerospace 校园招聘</title>
+    <meta name="description" content="xj-aerospace - 探索无界，智造未来 | 新一代空天科技与智能飞行系统公司">
+    <meta name="keywords" content="航空航天,无人机,推进系统,航电控制,空天技术,校园招聘">
+    <title>xj-aerospace | 探索无界，智造未来</title>
     <link rel="stylesheet" href="./style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;700;900&family=Noto+Sans+SC:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Noto+Sans+SC:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 </head>
 <body>
     <!-- 星空粒子背景 -->
     <canvas id="starfield"></canvas>
+    
+    <!-- 地球背景层 -->
+    <div class="earth-bg"></div>
 
     <!-- 导航栏 -->
-    <nav class="navbar">
+    <nav class="navbar" id="navbar">
         <div class="nav-container">
-            <a href="#" class="logo">
-                <span class="logo-text">xjaerospace</span>
+            <a href="#home" class="logo">
+                <div class="logo-icon">
+                    <svg viewBox="0 0 40 40" fill="none">
+                        <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+                        <path d="M20 2 L20 38 M2 20 L38 20" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                        <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1"/>
+                        <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="currentColor" opacity="0.8"/>
+                    </svg>
+                </div>
+                <span class="logo-text">xj-aerospace</span>
             </a>
-            <div class="nav-links">
-                <a href="#about" data-zh="关于我们" data-en="About">关于我们</a>
-                <a href="#positions" data-zh="招聘岗位" data-en="Positions">招聘岗位</a>
-                <a href="#benefits" data-zh="福利待遇" data-en="Benefits">福利待遇</a>
-                <a href="#process" data-zh="招聘流程" data-en="Process">招聘流程</a>
-                <a href="#contact" data-zh="联系我们" data-en="Contact">联系我们</a>
+            <div class="nav-links" id="navLinks">
+                <a href="#home" class="nav-link active" data-zh="首页" data-en="Home">首页</a>
+                <a href="#about" class="nav-link" data-zh="关于" data-en="About">关于</a>
+                <a href="#technology" class="nav-link" data-zh="技术" data-en="Technology">技术</a>
+                <a href="#products" class="nav-link" data-zh="产品" data-en="Products">产品</a>
+                <a href="#careers" class="nav-link" data-zh="招聘" data-en="Careers">招聘</a>
+                <a href="#contact" class="nav-link" data-zh="联系" data-en="Contact">联系</a>
             </div>
             <div class="nav-actions">
-                <button class="lang-toggle" id="langToggle">
-                    <span class="lang-zh">中</span>
+                <button class="lang-toggle" id="langToggle" aria-label="切换语言">
+                    <span class="lang-option active" data-lang="zh">中</span>
                     <span class="lang-divider">/</span>
-                    <span class="lang-en">EN</span>
+                    <span class="lang-option" data-lang="en">EN</span>
                 </button>
-                <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <button class="mobile-menu-btn" id="mobileMenuBtn" aria-label="菜单">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -42,75 +55,79 @@
 
     <!-- 移动端菜单 -->
     <div class="mobile-menu" id="mobileMenu">
-        <a href="#about" data-zh="关于我们" data-en="About">关于我们</a>
-        <a href="#positions" data-zh="招聘岗位" data-en="Positions">招聘岗位</a>
-        <a href="#benefits" data-zh="福利待遇" data-en="Benefits">福利待遇</a>
-        <a href="#process" data-zh="招聘流程" data-en="Process">招聘流程</a>
-        <a href="#contact" data-zh="联系我们" data-en="Contact">联系我们</a>
+        <div class="mobile-menu-content">
+            <a href="#home" data-zh="首页" data-en="Home">首页</a>
+            <a href="#about" data-zh="关于" data-en="About">关于</a>
+            <a href="#technology" data-zh="技术" data-en="Technology">技术</a>
+            <a href="#products" data-zh="产品" data-en="Products">产品</a>
+            <a href="#careers" data-zh="招聘" data-en="Careers">招聘</a>
+            <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
+        </div>
     </div>
 
-    <!-- Hero 区域 -->
-    <section class="hero" id="hero">
+    <!-- Hero 首页 -->
+    <section class="hero" id="home">
+        <div class="hero-bg-elements">
+            <div class="hero-grid"></div>
+            <div class="hero-glow"></div>
+            <div class="hero-orbit orbit-1"></div>
+            <div class="hero-orbit orbit-2"></div>
+            <div class="hero-orbit orbit-3"></div>
+        </div>
         <div class="hero-content">
-            <div class="hero-badge animate-fade-in">
-                <span data-zh="2025 校园招聘" data-en="Campus Recruitment 2025">2025 校园招聘</span>
+            <div class="hero-badge scroll-animate">
+                <div class="badge-glow"></div>
+                <span data-zh="新一代空天科技公司" data-en="Next-Gen Aerospace Company">新一代空天科技公司</span>
             </div>
-            <h1 class="hero-title animate-fade-in-up">
-                <span class="title-main" data-zh="探索无界" data-en="Explore Beyond Limits.">探索无界</span>
-                <span class="title-sub" data-zh="智造未来" data-en="Engineer the Future.">智造未来</span>
+            <h1 class="hero-title scroll-animate">
+                <span class="title-line title-line-1" data-zh="探索无界" data-en="Explore Beyond Limits">探索无界</span>
+                <span class="title-line title-line-2" data-zh="智造未来" data-en="Engineer the Future">智造未来</span>
             </h1>
-            <p class="hero-subtitle animate-fade-in-up" data-zh="xjaerospace 校园招聘正式启动" data-en="xjaerospace Campus Recruitment 2025">
-                xjaerospace 校园招聘正式启动
+            <p class="hero-subtitle scroll-animate" data-zh="新一代空天科技与智能飞行系统公司" data-en="Next-generation aerospace technology and intelligent flight systems company">
+                新一代空天科技与智能飞行系统公司
             </p>
-            <p class="hero-desc animate-fade-in-up" data-zh="加入我们，用创新科技定义未来出行与太空探索。" data-en="Join us to redefine future mobility and space exploration through advanced aerospace technology.">
-                加入我们，用创新科技定义未来出行与太空探索。
-            </p>
-            <div class="hero-buttons animate-fade-in-up">
-                <a href="#positions" class="btn btn-primary glow-btn" data-zh="查看岗位" data-en="View Positions">
-                    查看岗位
+            <div class="hero-buttons scroll-animate">
+                <a href="#about" class="btn btn-primary glow-btn">
+                    <span data-zh="了解更多" data-en="Learn More">了解更多</span>
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M5 12h14M12 5l7 7-7 7"/>
+                    </svg>
                 </a>
-                <a href="#about" class="btn btn-secondary" data-zh="了解更多" data-en="Learn More">
-                    了解更多
+                <a href="#careers" class="btn btn-secondary">
+                    <span data-zh="加入我们" data-en="Join Us">加入我们</span>
                 </a>
+            </div>
+            <div class="hero-stats scroll-animate">
+                <div class="hero-stat">
+                    <span class="stat-value" data-count="10">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label" data-zh="年技术积累" data-en="Years Experience">年技术积累</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value" data-count="500">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label" data-zh="研发团队" data-en="R&D Team">研发团队</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="stat-value" data-count="100">0</span>
+                    <span class="stat-suffix">+</span>
+                    <span class="stat-label" data-zh="专利技术" data-en="Patents">专利技术</span>
+                </div>
             </div>
         </div>
-        <div class="hero-scroll">
-            <div class="scroll-indicator">
-                <span data-zh="向下滚动" data-en="Scroll Down">向下滚动</span>
-                <div class="scroll-arrow"></div>
+        <div class="hero-scroll-indicator">
+            <div class="scroll-mouse">
+                <div class="scroll-wheel"></div>
             </div>
+            <span data-zh="向下滚动" data-en="Scroll Down">向下滚动</span>
         </div>
-        <!-- 视差层 -->
-        <div class="parallax-layer parallax-1"></div>
-        <div class="parallax-layer parallax-2"></div>
-        <div class="parallax-layer parallax-3"></div>
-    </section>
-
-    <!-- 数据统计 -->
-    <section class="stats">
-        <div class="container">
-            <div class="stats-grid">
-                <div class="stat-item scroll-animate">
-                    <div class="stat-number" data-count="50">0</div>
-                    <div class="stat-suffix">+</div>
-                    <div class="stat-label" data-zh="开放岗位" data-en="Open Positions">开放岗位</div>
-                </div>
-                <div class="stat-item scroll-animate">
-                    <div class="stat-number" data-count="10">0</div>
-                    <div class="stat-suffix">+</div>
-                    <div class="stat-label" data-zh="技术方向" data-en="Tech Fields">技术方向</div>
-                </div>
-                <div class="stat-item scroll-animate">
-                    <div class="stat-number" data-count="100">0</div>
-                    <div class="stat-suffix">+</div>
-                    <div class="stat-label" data-zh="研发团队" data-en="R&D Team">研发团队</div>
-                </div>
-                <div class="stat-item scroll-animate">
-                    <div class="stat-number" data-count="20">0</div>
-                    <div class="stat-suffix">+</div>
-                    <div class="stat-label" data-zh="专利技术" data-en="Patents">专利技术</div>
-                </div>
-            </div>
+        <!-- 飞行器装饰 -->
+        <div class="hero-aircraft">
+            <svg viewBox="0 0 200 60" fill="none">
+                <path d="M10 30 L60 30 L80 20 L180 25 L190 30 L180 35 L80 40 L60 30" fill="currentColor" opacity="0.1" stroke="currentColor" stroke-width="0.5"/>
+                <path d="M60 30 L80 10 L85 30 L80 50 L60 30" fill="currentColor" opacity="0.15"/>
+                <circle cx="170" cy="30" r="3" fill="currentColor" opacity="0.5"/>
+            </svg>
         </div>
     </section>
 
@@ -119,373 +136,511 @@
         <div class="container">
             <div class="section-header scroll-animate">
                 <span class="section-tag" data-zh="关于我们" data-en="About Us">关于我们</span>
-                <h2 class="section-title" data-zh="引领空天科技创新" data-en="Leading Aerospace Innovation">引领空天科技创新</h2>
+                <h2 class="section-title">
+                    <span data-zh="引领空天科技" data-en="Leading Aerospace">引领空天科技</span>
+                    <span class="title-highlight" data-zh="创新变革" data-en="Innovation">创新变革</span>
+                </h2>
+                <p class="section-desc" data-zh="xj-aerospace 是一家专注于空天技术的高科技企业，致力于打造安全、智能、可靠的空天产品与解决方案" data-en="xj-aerospace is a high-tech company focused on aerospace technology, committed to building safe, intelligent, and reliable aerospace products and solutions">
+                    xj-aerospace 是一家专注于空天技术的高科技企业，致力于打造安全、智能、可靠的空天产品与解决方案
+                </p>
             </div>
-            <div class="about-content">
-                <div class="about-text scroll-animate">
-                    <p data-zh="xjaerospace 是一家专注于空天技术、智能飞行系统、无人机平台、推进系统、航电控制与空间应用的高科技企业。" data-en="xjaerospace is a high-tech aerospace company focused on intelligent flight systems, UAV platforms, propulsion technologies, avionics control, and space applications.">
-                        xjaerospace 是一家专注于空天技术、智能飞行系统、无人机平台、推进系统、航电控制与空间应用的高科技企业。
-                    </p>
-                    <p data-zh="我们以工程能力为核心，打造安全、智能、可靠的空天产品与解决方案。" data-en="With engineering excellence at our core, we build safe, intelligent, and reliable aerospace products and solutions.">
-                        我们以工程能力为核心，打造安全、智能、可靠的空天产品与解决方案。
-                    </p>
+            
+            <div class="about-grid">
+                <div class="about-main scroll-animate">
+                    <div class="about-image">
+                        <div class="image-placeholder">
+                            <svg viewBox="0 0 400 300" fill="none">
+                                <rect width="400" height="300" fill="url(#aboutGrad)"/>
+                                <circle cx="200" cy="150" r="80" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                                <circle cx="200" cy="150" r="60" stroke="currentColor" stroke-width="0.5" opacity="0.4"/>
+                                <circle cx="200" cy="150" r="40" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                                <path d="M200 70 L200 230 M120 150 L280 150" stroke="currentColor" stroke-width="0.5" opacity="0.3"/>
+                                <path d="M160 90 L240 210 M240 90 L160 210" stroke="currentColor" stroke-width="0.3" opacity="0.2"/>
+                                <!-- 飞机轮廓 -->
+                                <path d="M120 150 L180 150 L200 130 L280 145 L290 150 L280 155 L200 170 L180 150" 
+                                      fill="none" stroke="currentColor" stroke-width="1.5" opacity="0.6"/>
+                                <defs>
+                                    <linearGradient id="aboutGrad" x1="0" y1="0" x2="400" y2="300">
+                                        <stop offset="0%" stop-color="#0a1628"/>
+                                        <stop offset="100%" stop-color="#0d2847"/>
+                                    </linearGradient>
+                                </defs>
+                            </svg>
+                        </div>
+                        <div class="image-overlay"></div>
+                    </div>
                 </div>
-                <div class="about-features">
-                    <div class="feature-card scroll-animate">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M2 17l10 5 10-5"/>
-                                <path d="M2 12l10 5 10-5"/>
+                <div class="about-content">
+                    <div class="about-text scroll-animate">
+                        <p data-zh="xj-aerospace 专注于空天技术、智能飞行系统、无人机平台、推进系统、航电控制与空间应用等核心领域。" data-en="xj-aerospace focuses on core areas including aerospace technology, intelligent flight systems, UAV platforms, propulsion systems, avionics control, and space applications.">
+                            xj-aerospace 专注于空天技术、智能飞行系统、无人机平台、推进系统、航电控制与空间应用等核心领域。
+                        </p>
+                        <p data-zh="我们以卓越的工程能力为核心，汇聚全球顶尖人才，致力于突破技术边界，为人类探索更广阔的天空与宇宙。" data-en="With engineering excellence at our core, we bring together top global talent, committed to pushing technological boundaries and exploring broader skies and space for humanity.">
+                            我们以卓越的工程能力为核心，汇聚全球顶尖人才，致力于突破技术边界，为人类探索更广阔的天空与宇宙。
+                        </p>
+                    </div>
+                    <div class="about-highlights">
+                        <div class="highlight-item scroll-animate">
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M12 6v6l4 2"/>
+                                </svg>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-zh="技术驱动" data-en="Tech Driven">技术驱动</h4>
+                                <p data-zh="持续创新研发投入" data-en="Continuous R&D investment">持续创新研发投入</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item scroll-animate">
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <path d="M12 2L2 7l10 5 10-5-10-5z"/>
+                                    <path d="M2 17l10 5 10-5"/>
+                                    <path d="M2 12l10 5 10-5"/>
+                                </svg>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-zh="全栈能力" data-en="Full Stack">全栈能力</h4>
+                                <p data-zh="端到端系统集成" data-en="End-to-end system integration">端到端系统集成</p>
+                            </div>
+                        </div>
+                        <div class="highlight-item scroll-animate">
+                            <div class="highlight-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <path d="M2 12h20"/>
+                                    <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
+                                </svg>
+                            </div>
+                            <div class="highlight-content">
+                                <h4 data-zh="全球视野" data-en="Global Vision">全球视野</h4>
+                                <p data-zh="国际化战略布局" data-en="International strategic layout">国际化战略布局</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 技术领域 -->
+    <section class="technology" id="technology">
+        <div class="container">
+            <div class="section-header scroll-animate">
+                <span class="section-tag" data-zh="核心技术" data-en="Core Technology">核心技术</span>
+                <h2 class="section-title">
+                    <span data-zh="前沿技术" data-en="Cutting-Edge">前沿技术</span>
+                    <span class="title-highlight" data-zh="创新引擎" data-en="Innovation Engine">创新引擎</span>
+                </h2>
+            </div>
+            <div class="tech-grid">
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="24" r="20"/>
+                                <ellipse cx="24" cy="24" rx="20" ry="8"/>
+                                <ellipse cx="24" cy="24" rx="8" ry="20"/>
+                                <circle cx="24" cy="24" r="4" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-zh="智能飞行系统" data-en="Intelligent Flight">智能飞行系统</h3>
-                        <p data-zh="先进的飞控算法与自主导航技术" data-en="Advanced flight control and autonomous navigation">先进的飞控算法与自主导航技术</p>
+                        <h3 data-zh="空天技术" data-en="Aerospace Tech">空天技术</h3>
+                        <p data-zh="融合航空与航天技术，突破大气层边界，实现天地一体化飞行" data-en="Integrating aviation and space technology to break atmospheric boundaries and achieve integrated flight">融合航空与航天技术，突破大气层边界，实现天地一体化飞行</p>
+                        <div class="tech-card-glow"></div>
                     </div>
-                    <div class="feature-card scroll-animate">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
-                                <path d="M2 12h20"/>
+                </div>
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M8 24 L20 24 L24 16 L40 22 L44 24 L40 26 L24 32 L20 24"/>
+                                <path d="M20 24 L24 12 L28 24 L24 36 L20 24"/>
+                                <circle cx="38" cy="24" r="2" fill="currentColor"/>
                             </svg>
                         </div>
-                        <h3 data-zh="无人机平台" data-en="UAV Platforms">无人机平台</h3>
-                        <p data-zh="多场景无人机系统研发与应用" data-en="Multi-scenario UAV system R&D and applications">多场景无人机系统研发与应用</p>
+                        <h3 data-zh="无人机系统" data-en="UAV Systems">无人机系统</h3>
+                        <p data-zh="多场景智能无人机平台，覆盖侦察、物流、测绘等应用领域" data-en="Multi-scenario intelligent UAV platforms covering reconnaissance, logistics, and mapping applications">多场景智能无人机平台，覆盖侦察、物流、测绘等应用领域</p>
+                        <div class="tech-card-glow"></div>
                     </div>
-                    <div class="feature-card scroll-animate">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                                <path d="M12 22V12"/>
-                                <path d="M20 16.7V7"/>
-                                <path d="M4 16.7V7"/>
+                </div>
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="24" r="8"/>
+                                <path d="M24 4v8 M24 36v8 M4 24h8 M36 24h8"/>
+                                <path d="M10 10l6 6 M32 32l6 6 M10 38l6-6 M32 16l6-6"/>
+                                <circle cx="24" cy="24" r="16" stroke-dasharray="4 4"/>
                             </svg>
                         </div>
                         <h3 data-zh="推进系统" data-en="Propulsion">推进系统</h3>
-                        <p data-zh="高效推进技术与动力系统研究" data-en="Efficient propulsion technology and power systems">高效推进技术与动力系统研究</p>
+                        <p data-zh="高效环保的新型推进技术，包括电推进、混合动力等前沿方向" data-en="Efficient and eco-friendly propulsion technologies including electric and hybrid power systems">高效环保的新型推进技术，包括电推进、混合动力等前沿方向</p>
+                        <div class="tech-card-glow"></div>
                     </div>
-                    <div class="feature-card scroll-animate">
-                        <div class="feature-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <rect x="4" y="4" width="16" height="16" rx="2"/>
-                                <path d="M9 9h6v6H9z"/>
-                                <path d="M9 1v3"/>
-                                <path d="M15 1v3"/>
-                                <path d="M9 20v3"/>
-                                <path d="M15 20v3"/>
-                                <path d="M20 9h3"/>
-                                <path d="M20 14h3"/>
-                                <path d="M1 9h3"/>
-                                <path d="M1 14h3"/>
+                </div>
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="8" y="8" width="32" height="32" rx="4"/>
+                                <rect x="16" y="16" width="16" height="16"/>
+                                <path d="M16 4v8 M32 4v8 M16 36v8 M32 36v8"/>
+                                <path d="M4 16h8 M4 32h8 M36 16h8 M36 32h8"/>
                             </svg>
                         </div>
                         <h3 data-zh="航电控制" data-en="Avionics">航电控制</h3>
-                        <p data-zh="航空电子与飞行控制系统" data-en="Avionics and flight control systems">航空电子与飞行控制系统</p>
+                        <p data-zh="先进航空电子系统与智能飞控，确保飞行安全与精准控制" data-en="Advanced avionics systems and intelligent flight control for safe and precise operations">先进航空电子系统与智能飞控，确保飞行安全与精准控制</p>
+                        <div class="tech-card-glow"></div>
+                    </div>
+                </div>
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="24" cy="24" r="20"/>
+                                <circle cx="24" cy="24" r="6" fill="currentColor" opacity="0.3"/>
+                                <path d="M24 4v8 M24 36v8"/>
+                                <ellipse cx="24" cy="24" rx="20" ry="10" transform="rotate(60 24 24)"/>
+                                <ellipse cx="24" cy="24" rx="20" ry="10" transform="rotate(-60 24 24)"/>
+                            </svg>
+                        </div>
+                        <h3 data-zh="空间应用" data-en="Space Apps">空间应用</h3>
+                        <p data-zh="卫星系统、空间站载荷、深空探测等空间技术应用" data-en="Satellite systems, space station payloads, and deep space exploration applications">卫星系统、空间站载荷、深空探测等空间技术应用</p>
+                        <div class="tech-card-glow"></div>
+                    </div>
+                </div>
+                <div class="tech-card scroll-animate">
+                    <div class="tech-card-inner">
+                        <div class="tech-icon">
+                            <svg viewBox="0 0 48 48" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 36 L24 8 L36 36"/>
+                                <path d="M16 28h16"/>
+                                <circle cx="24" cy="36" r="4"/>
+                                <path d="M8 44h32"/>
+                            </svg>
+                        </div>
+                        <h3 data-zh="智能飞控" data-en="Smart Flight">智能飞控</h3>
+                        <p data-zh="AI驱动的自主飞行控制算法，实现智能决策与精准导航" data-en="AI-driven autonomous flight control algorithms for intelligent decision-making and precise navigation">AI驱动的自主飞行控制算法，实现智能决策与精准导航</p>
+                        <div class="tech-card-glow"></div>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 招聘岗位 -->
-    <section class="positions" id="positions">
+    <!-- 产品展示 -->
+    <section class="products" id="products">
         <div class="container">
             <div class="section-header scroll-animate">
-                <span class="section-tag" data-zh="招聘岗位" data-en="Open Positions">招聘岗位</span>
-                <h2 class="section-title" data-zh="加入我们的团队" data-en="Join Our Team">加入我们的团队</h2>
+                <span class="section-tag" data-zh="产品体系" data-en="Products">产品体系</span>
+                <h2 class="section-title">
+                    <span data-zh="空天产品" data-en="Aerospace">空天产品</span>
+                    <span class="title-highlight" data-zh="解决方案" data-en="Solutions">解决方案</span>
+                </h2>
             </div>
-            <div class="positions-grid">
-                <div class="position-card scroll-animate" data-category="design">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
+            <div class="products-showcase">
+                <div class="product-item scroll-animate">
+                    <div class="product-visual">
+                        <svg viewBox="0 0 300 200" fill="none">
+                            <rect width="300" height="200" fill="url(#prodGrad1)"/>
+                            <!-- 飞行器轮廓 -->
+                            <path d="M50 100 L100 100 L130 80 L250 95 L270 100 L250 105 L130 120 L100 100" 
+                                  stroke="currentColor" stroke-width="1" fill="none" opacity="0.6"/>
+                            <path d="M100 100 L130 60 L140 100 L130 140 L100 100" 
+                                  stroke="currentColor" stroke-width="1" fill="currentColor" opacity="0.1"/>
+                            <circle cx="240" cy="100" r="4" fill="currentColor" opacity="0.5"/>
+                            <defs>
+                                <linearGradient id="prodGrad1" x1="0" y1="0" x2="300" y2="200">
+                                    <stop offset="0%" stop-color="#0a1628"/>
+                                    <stop offset="100%" stop-color="#0d2847"/>
+                                </linearGradient>
+                            </defs>
                         </svg>
                     </div>
-                    <h3 class="position-title" data-zh="飞行器总体设计工程师" data-en="Aircraft System Design Engineer">飞行器总体设计工程师</h3>
-                    <p class="position-desc" data-zh="负责飞行器总体方案设计与系统集成" data-en="Responsible for overall aircraft design and system integration">负责飞行器总体方案设计与系统集成</p>
-                    <div class="position-tags">
-                        <span data-zh="硕士及以上" data-en="Master+">硕士及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
+                    <div class="product-info">
+                        <span class="product-tag" data-zh="飞行器系统" data-en="Aircraft Systems">飞行器系统</span>
+                        <h3 data-zh="新一代智能飞行平台" data-en="Next-Gen Intelligent Flight Platform">新一代智能飞行平台</h3>
+                        <p data-zh="集成先进航电、智能飞控与高效推进的综合飞行器解决方案" data-en="Integrated aircraft solutions with advanced avionics, smart flight control, and efficient propulsion">集成先进航电、智能飞控与高效推进的综合飞行器解决方案</p>
                     </div>
                 </div>
-                <div class="position-card scroll-animate" data-category="design">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M12 2L2 7l10 5 10-5-10-5z"/>
-                            <path d="M2 17l10 5 10-5"/>
-                            <path d="M2 12l10 5 10-5"/>
+                <div class="product-item scroll-animate">
+                    <div class="product-visual">
+                        <svg viewBox="0 0 300 200" fill="none">
+                            <rect width="300" height="200" fill="url(#prodGrad2)"/>
+                            <!-- 无人机轮廓 -->
+                            <rect x="130" y="90" width="40" height="20" rx="4" stroke="currentColor" fill="none"/>
+                            <path d="M90 85 L130 95" stroke="currentColor" stroke-width="1"/>
+                            <path d="M90 115 L130 105" stroke="currentColor" stroke-width="1"/>
+                            <path d="M170 95 L210 85" stroke="currentColor" stroke-width="1"/>
+                            <path d="M170 105 L210 115" stroke="currentColor" stroke-width="1"/>
+                            <circle cx="90" cy="85" r="15" stroke="currentColor" fill="none"/>
+                            <circle cx="90" cy="115" r="15" stroke="currentColor" fill="none"/>
+                            <circle cx="210" cy="85" r="15" stroke="currentColor" fill="none"/>
+                            <circle cx="210" cy="115" r="15" stroke="currentColor" fill="none"/>
+                            <defs>
+                                <linearGradient id="prodGrad2" x1="0" y1="0" x2="300" y2="200">
+                                    <stop offset="0%" stop-color="#0d2847"/>
+                                    <stop offset="100%" stop-color="#0a1628"/>
+                                </linearGradient>
+                            </defs>
                         </svg>
                     </div>
-                    <h3 class="position-title" data-zh="气动设计工程师" data-en="Aerodynamic Design Engineer">气动设计工程师</h3>
-                    <p class="position-desc" data-zh="负责飞行器气动外形设计与优化" data-en="Responsible for aerodynamic shape design and optimization">负责飞行器气动外形设计与优化</p>
-                    <div class="position-tags">
-                        <span data-zh="硕士及以上" data-en="Master+">硕士及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
+                    <div class="product-info">
+                        <span class="product-tag" data-zh="无人机平台" data-en="UAV Platforms">无人机平台</span>
+                        <h3 data-zh="多旋翼智能无人机系统" data-en="Multi-Rotor Smart UAV System">多旋翼智能无人机系统</h3>
+                        <p data-zh="适用于航拍、测绘、巡检等多场景的专业级无人机平台" data-en="Professional UAV platforms for aerial photography, mapping, and inspection scenarios">适用于航拍、测绘、巡检等多场景的专业级无人机平台</p>
                     </div>
                 </div>
-                <div class="position-card scroll-animate" data-category="propulsion">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                <div class="product-item scroll-animate">
+                    <div class="product-visual">
+                        <svg viewBox="0 0 300 200" fill="none">
+                            <rect width="300" height="200" fill="url(#prodGrad3)"/>
+                            <!-- 火箭/推进器轮廓 -->
+                            <path d="M150 30 L170 80 L170 150 L160 170 L150 180 L140 170 L130 150 L130 80 Z" 
+                                  stroke="currentColor" fill="none"/>
+                            <path d="M130 120 L110 140 L120 150 L130 140" stroke="currentColor" fill="none"/>
+                            <path d="M170 120 L190 140 L180 150 L170 140" stroke="currentColor" fill="none"/>
+                            <ellipse cx="150" cy="70" rx="10" ry="5" stroke="currentColor" fill="currentColor" opacity="0.2"/>
+                            <path d="M140 180 L150 200 L160 180" stroke="currentColor" fill="currentColor" opacity="0.3"/>
+                            <defs>
+                                <linearGradient id="prodGrad3" x1="0" y1="0" x2="300" y2="200">
+                                    <stop offset="0%" stop-color="#0a1628"/>
+                                    <stop offset="100%" stop-color="#0d2847"/>
+                                </linearGradient>
+                            </defs>
                         </svg>
                     </div>
-                    <h3 class="position-title" data-zh="推进系统工程师" data-en="Propulsion System Engineer">推进系统工程师</h3>
-                    <p class="position-desc" data-zh="负责动力系统设计与性能优化" data-en="Responsible for propulsion system design and optimization">负责动力系统设计与性能优化</p>
-                    <div class="position-tags">
-                        <span data-zh="硕士及以上" data-en="Master+">硕士及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
+                    <div class="product-info">
+                        <span class="product-tag" data-zh="推进技术" data-en="Propulsion Tech">推进技术</span>
+                        <h3 data-zh="高性能推进系统" data-en="High-Performance Propulsion System">高性能推进系统</h3>
+                        <p data-zh="涵盖电推进、涡扇发动机、固体火箭等多类型动力解决方案" data-en="Covering electric propulsion, turbofan engines, and solid rockets power solutions">涵盖电推进、涡扇发动机、固体火箭等多类型动力解决方案</p>
                     </div>
                 </div>
-                <div class="position-card scroll-animate" data-category="avionics">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="4" y="4" width="16" height="16" rx="2"/>
-                            <rect x="9" y="9" width="6" height="6"/>
-                            <line x1="9" y1="1" x2="9" y2="4"/>
-                            <line x1="15" y1="1" x2="15" y2="4"/>
-                            <line x1="9" y1="20" x2="9" y2="23"/>
-                            <line x1="15" y1="20" x2="15" y2="23"/>
-                            <line x1="20" y1="9" x2="23" y2="9"/>
-                            <line x1="20" y1="14" x2="23" y2="14"/>
-                            <line x1="1" y1="9" x2="4" y2="9"/>
-                            <line x1="1" y1="14" x2="4" y2="14"/>
+                <div class="product-item scroll-animate">
+                    <div class="product-visual">
+                        <svg viewBox="0 0 300 200" fill="none">
+                            <rect width="300" height="200" fill="url(#prodGrad4)"/>
+                            <!-- 卫星轮廓 -->
+                            <rect x="120" y="80" width="60" height="40" rx="4" stroke="currentColor" fill="none"/>
+                            <rect x="80" y="90" width="40" height="20" stroke="currentColor" fill="currentColor" opacity="0.1"/>
+                            <rect x="180" y="90" width="40" height="20" stroke="currentColor" fill="currentColor" opacity="0.1"/>
+                            <circle cx="150" cy="100" r="8" stroke="currentColor" fill="none"/>
+                            <path d="M150 60 L150 80" stroke="currentColor"/>
+                            <path d="M140 65 L150 60 L160 65" stroke="currentColor" fill="none"/>
+                            <defs>
+                                <linearGradient id="prodGrad4" x1="0" y1="0" x2="300" y2="200">
+                                    <stop offset="0%" stop-color="#0d2847"/>
+                                    <stop offset="100%" stop-color="#0a1628"/>
+                                </linearGradient>
+                            </defs>
                         </svg>
                     </div>
-                    <h3 class="position-title" data-zh="航电控制工程师" data-en="Avionics Control Engineer">航电控制工程师</h3>
-                    <p class="position-desc" data-zh="负责航电系统设计与控制软件开发" data-en="Responsible for avionics system design and control software">负责航电系统设计与控制软件开发</p>
-                    <div class="position-tags">
-                        <span data-zh="本科及以上" data-en="Bachelor+">本科及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="software">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polyline points="16 18 22 12 16 6"/>
-                            <polyline points="8 6 2 12 8 18"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="嵌入式软件工程师" data-en="Embedded Software Engineer">嵌入式软件工程师</h3>
-                    <p class="position-desc" data-zh="负责嵌入式系统软件开发与调试" data-en="Responsible for embedded software development and debugging">负责嵌入式系统软件开发与调试</p>
-                    <div class="position-tags">
-                        <span data-zh="本科及以上" data-en="Bachelor+">本科及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="software">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M4 17l6-6-6-6"/>
-                            <path d="M12 19h8"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="C++开发工程师" data-en="C++ Software Engineer">C++开发工程师</h3>
-                    <p class="position-desc" data-zh="负责核心系统软件架构与开发" data-en="Responsible for core system software architecture and development">负责核心系统软件架构与开发</p>
-                    <div class="position-tags">
-                        <span data-zh="本科及以上" data-en="Bachelor+">本科及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="algorithm">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="3"/>
-                            <path d="M12 1v6"/>
-                            <path d="M12 17v6"/>
-                            <path d="M4.22 4.22l4.24 4.24"/>
-                            <path d="M15.54 15.54l4.24 4.24"/>
-                            <path d="M1 12h6"/>
-                            <path d="M17 12h6"/>
-                            <path d="M4.22 19.78l4.24-4.24"/>
-                            <path d="M15.54 8.46l4.24-4.24"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="飞控算法工程师" data-en="Flight Control Algorithm Engineer">飞控算法工程师</h3>
-                    <p class="position-desc" data-zh="负责飞行控制算法研究与实现" data-en="Responsible for flight control algorithm research and implementation">负责飞行控制算法研究与实现</p>
-                    <div class="position-tags">
-                        <span data-zh="硕士及以上" data-en="Master+">硕士及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="simulation">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
-                            <polyline points="7.5 4.21 12 6.81 16.5 4.21"/>
-                            <polyline points="7.5 19.79 7.5 14.6 3 12"/>
-                            <polyline points="21 12 16.5 14.6 16.5 19.79"/>
-                            <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
-                            <line x1="12" y1="22.08" x2="12" y2="12"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="仿真建模工程师" data-en="Simulation & Modeling Engineer">仿真建模工程师</h3>
-                    <p class="position-desc" data-zh="负责飞行器仿真系统建模与验证" data-en="Responsible for aircraft simulation modeling and verification">负责飞行器仿真系统建模与验证</p>
-                    <div class="position-tags">
-                        <span data-zh="硕士及以上" data-en="Master+">硕士及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="data">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <ellipse cx="12" cy="5" rx="9" ry="3"/>
-                            <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
-                            <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="数据工程师" data-en="Data Engineer">数据工程师</h3>
-                    <p class="position-desc" data-zh="负责数据平台建设与数据分析" data-en="Responsible for data platform construction and analysis">负责数据平台建设与数据分析</p>
-                    <div class="position-tags">
-                        <span data-zh="本科及以上" data-en="Bachelor+">本科及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
-                    </div>
-                </div>
-                <div class="position-card scroll-animate" data-category="supply">
-                    <div class="position-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="1" y="3" width="15" height="13"/>
-                            <polygon points="16 8 20 8 23 11 23 16 16 16 16 8"/>
-                            <circle cx="5.5" cy="18.5" r="2.5"/>
-                            <circle cx="18.5" cy="18.5" r="2.5"/>
-                        </svg>
-                    </div>
-                    <h3 class="position-title" data-zh="供应链管理专员" data-en="Supply Chain Specialist">供应链管理专员</h3>
-                    <p class="position-desc" data-zh="负责供应商管理与物料采购" data-en="Responsible for supplier management and material procurement">负责供应商管理与物料采购</p>
-                    <div class="position-tags">
-                        <span data-zh="本科及以上" data-en="Bachelor+">本科及以上</span>
-                        <span data-zh="全职" data-en="Full-time">全职</span>
+                    <div class="product-info">
+                        <span class="product-tag" data-zh="空间平台" data-en="Space Platform">空间平台</span>
+                        <h3 data-zh="卫星与空间载荷系统" data-en="Satellite & Space Payload Systems">卫星与空间载荷系统</h3>
+                        <p data-zh="遥感卫星、通信卫星及空间站科学载荷研发与集成" data-en="Remote sensing satellites, communication satellites, and space station payload R&D">遥感卫星、通信卫星及空间站科学载荷研发与集成</p>
                     </div>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- 福利待遇 -->
-    <section class="benefits" id="benefits">
-        <div class="container">
-            <div class="section-header scroll-animate">
-                <span class="section-tag" data-zh="福利待遇" data-en="Benefits">福利待遇</span>
-                <h2 class="section-title" data-zh="我们的诚意" data-en="What We Offer">我们的诚意</h2>
-            </div>
-            <div class="benefits-grid">
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <line x1="12" y1="1" x2="12" y2="23"/>
-                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="有竞争力的薪酬" data-en="Competitive Compensation">有竞争力的薪酬</h3>
-                    <p data-zh="行业领先的薪资水平" data-en="Industry-leading salary packages">行业领先的薪资水平</p>
-                </div>
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/>
-                            <polyline points="9 22 9 12 15 12 15 22"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="五险一金" data-en="Social Insurance & Housing Fund">五险一金</h3>
-                    <p data-zh="完善的社会保障体系" data-en="Comprehensive social security system">完善的社会保障体系</p>
-                </div>
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="前沿项目机会" data-en="Frontier Project Opportunities">前沿项目机会</h3>
-                    <p data-zh="参与行业最前沿的技术研发" data-en="Participate in cutting-edge R&D projects">参与行业最前沿的技术研发</p>
-                </div>
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                            <circle cx="9" cy="7" r="4"/>
-                            <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                            <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="导师培养体系" data-en="Mentorship Program">导师培养体系</h3>
-                    <p data-zh="资深导师一对一指导成长" data-en="One-on-one guidance from senior mentors">资深导师一对一指导成长</p>
-                </div>
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <circle cx="12" cy="12" r="10"/>
-                            <polyline points="12 6 12 12 16 14"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="弹性工作制" data-en="Flexible Working System">弹性工作制</h3>
-                    <p data-zh="灵活的工作时间安排" data-en="Flexible working hours arrangement">灵活的工作时间安排</p>
-                </div>
-                <div class="benefit-card scroll-animate">
-                    <div class="benefit-icon">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <path d="M20.24 12.24a6 6 0 0 0-8.49-8.49L5 10.5V19h8.5z"/>
-                            <line x1="16" y1="8" x2="2" y2="22"/>
-                            <line x1="17.5" y1="15" x2="9" y2="15"/>
-                        </svg>
-                    </div>
-                    <h3 data-zh="丰富员工活动" data-en="Employee Activities">丰富员工活动</h3>
-                    <p data-zh="团建、运动、兴趣社团等" data-en="Team building, sports, hobby clubs, etc.">团建、运动、兴趣社团等</p>
-                </div>
-            </div>
+    <!-- 校园招聘 -->
+    <section class="careers" id="careers">
+        <div class="careers-bg">
+            <div class="careers-grid"></div>
         </div>
-    </section>
-
-    <!-- 招聘流程 -->
-    <section class="process" id="process">
         <div class="container">
             <div class="section-header scroll-animate">
-                <span class="section-tag" data-zh="招聘流程" data-en="Recruitment Process">招聘流程</span>
-                <h2 class="section-title" data-zh="简单透明的流程" data-en="Simple & Transparent Process">简单透明的流程</h2>
+                <span class="section-tag careers-tag" data-zh="校园招聘" data-en="Campus Recruitment">校园招聘</span>
+                <h2 class="section-title">
+                    <span data-zh="xj-aerospace" data-en="xj-aerospace">xj-aerospace</span>
+                    <span class="title-highlight" data-zh="校园招聘" data-en="Campus Hiring">校园招聘</span>
+                </h2>
+                <p class="section-desc" data-zh="加入我们，用创新科技定义未来出行与太空探索" data-en="Join us to redefine future mobility and space exploration through advanced aerospace technology">
+                    加入我们，用创新科技定义未来出行与太空探索
+                </p>
             </div>
-            <div class="process-timeline">
-                <div class="process-item scroll-animate">
-                    <div class="process-number">01</div>
-                    <div class="process-content">
-                        <h3 data-zh="网申投递" data-en="Online Application">网申投递</h3>
-                        <p data-zh="通过官网或邮箱投递简历" data-en="Submit your resume via our website or email">通过官网或邮箱投递简历</p>
+
+            <!-- 招聘岗位 -->
+            <div class="careers-positions">
+                <h3 class="subsection-title scroll-animate" data-zh="开放岗位" data-en="Open Positions">开放岗位</h3>
+                <div class="positions-grid">
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"/>
+                                <polyline points="3.27 6.96 12 12.01 20.73 6.96"/>
+                                <line x1="12" y1="22.08" x2="12" y2="12"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="飞行器设计" data-en="Aircraft Design">飞行器设计</h4>
+                        <p data-zh="飞行器总体/气动设计工程师" data-en="Aircraft System/Aerodynamic Design Engineer">飞行器总体/气动设计工程师</p>
+                    </div>
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polygon points="16.24 7.76 14.12 14.12 7.76 16.24 9.88 9.88 16.24 7.76"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="推进系统" data-en="Propulsion">推进系统</h4>
+                        <p data-zh="推进系统设计与性能工程师" data-en="Propulsion System Design & Performance Engineer">推进系统设计与性能工程师</p>
+                    </div>
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polyline points="16 18 22 12 16 6"/>
+                                <polyline points="8 6 2 12 8 18"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="软件开发" data-en="Software Dev">软件开发</h4>
+                        <p data-zh="嵌入式/C++软件工程师" data-en="Embedded/C++ Software Engineer">嵌入式/C++软件工程师</p>
+                    </div>
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="3"/>
+                                <path d="M12 1v6 M12 17v6 M4.22 4.22l4.24 4.24 M15.54 15.54l4.24 4.24"/>
+                                <path d="M1 12h6 M17 12h6 M4.22 19.78l4.24-4.24 M15.54 8.46l4.24-4.24"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="飞控算法" data-en="Flight Control">飞控算法</h4>
+                        <p data-zh="飞控算法/仿真建模工程师" data-en="Flight Control Algorithm/Simulation Engineer">飞控算法/仿真建模工程师</p>
+                    </div>
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <ellipse cx="12" cy="5" rx="9" ry="3"/>
+                                <path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/>
+                                <path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="数据工程" data-en="Data Engineering">数据工程</h4>
+                        <p data-zh="数据平台与分析工程师" data-en="Data Platform & Analytics Engineer">数据平台与分析工程师</p>
+                    </div>
+                    <div class="position-card scroll-animate">
+                        <div class="position-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <rect x="4" y="4" width="16" height="16" rx="2"/>
+                                <rect x="9" y="9" width="6" height="6"/>
+                                <line x1="9" y1="1" x2="9" y2="4"/>
+                                <line x1="15" y1="1" x2="15" y2="4"/>
+                                <line x1="9" y1="20" x2="9" y2="23"/>
+                                <line x1="15" y1="20" x2="15" y2="23"/>
+                            </svg>
+                        </div>
+                        <h4 data-zh="航电控制" data-en="Avionics">航电控制</h4>
+                        <p data-zh="航电系统与控制工程师" data-en="Avionics System & Control Engineer">航电系统与控制工程师</p>
                     </div>
                 </div>
-                <div class="process-item scroll-animate">
-                    <div class="process-number">02</div>
-                    <div class="process-content">
-                        <h3 data-zh="简历筛选" data-en="Resume Screening">简历筛选</h3>
-                        <p data-zh="HR团队专业筛选评估" data-en="Professional screening by our HR team">HR团队专业筛选评估</p>
+            </div>
+
+            <!-- 福利待遇 -->
+            <div class="careers-benefits">
+                <h3 class="subsection-title scroll-animate" data-zh="福利待遇" data-en="Benefits">福利待遇</h3>
+                <div class="benefits-grid">
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <line x1="12" y1="1" x2="12" y2="23"/>
+                                <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/>
+                            </svg>
+                        </div>
+                        <span data-zh="有竞争力的薪酬" data-en="Competitive Compensation">有竞争力的薪酬</span>
+                    </div>
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                            </svg>
+                        </div>
+                        <span data-zh="五险一金" data-en="Social Insurance & Housing Fund">五险一金</span>
+                    </div>
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <polygon points="12 2 15.09 8.26 22 9.27 17 14.14 18.18 21.02 12 17.77 5.82 21.02 7 14.14 2 9.27 8.91 8.26 12 2"/>
+                            </svg>
+                        </div>
+                        <span data-zh="前沿项目机会" data-en="Frontier Project Opportunities">前沿项目机会</span>
+                    </div>
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
+                                <circle cx="9" cy="7" r="4"/>
+                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
+                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
+                            </svg>
+                        </div>
+                        <span data-zh="导师培养体系" data-en="Mentorship Program">导师培养体系</span>
+                    </div>
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <circle cx="12" cy="12" r="10"/>
+                                <polyline points="12 6 12 12 16 14"/>
+                            </svg>
+                        </div>
+                        <span data-zh="弹性工作制" data-en="Flexible Working System">弹性工作制</span>
+                    </div>
+                    <div class="benefit-item scroll-animate">
+                        <div class="benefit-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
+                            </svg>
+                        </div>
+                        <span data-zh="丰富员工活动" data-en="Employee Activities">丰富员工活动</span>
                     </div>
                 </div>
-                <div class="process-item scroll-animate">
-                    <div class="process-number">03</div>
-                    <div class="process-content">
-                        <h3 data-zh="笔试测评" data-en="Assessment">笔试测评</h3>
-                        <p data-zh="在线笔试与能力测评" data-en="Online written test and ability assessment">在线笔试与能力测评</p>
+            </div>
+
+            <!-- 招聘流程 -->
+            <div class="careers-process">
+                <h3 class="subsection-title scroll-animate" data-zh="招聘流程" data-en="Recruitment Process">招聘流程</h3>
+                <div class="process-timeline">
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">01</div>
+                        <div class="step-content">
+                            <h4 data-zh="网申投递" data-en="Online Application">网申投递</h4>
+                        </div>
+                        <div class="step-line"></div>
                     </div>
-                </div>
-                <div class="process-item scroll-animate">
-                    <div class="process-number">04</div>
-                    <div class="process-content">
-                        <h3 data-zh="技术面试" data-en="Technical Interview">技术面试</h3>
-                        <p data-zh="与技术专家深入交流" data-en="In-depth discussion with technical experts">与技术专家深入交流</p>
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">02</div>
+                        <div class="step-content">
+                            <h4 data-zh="简历筛选" data-en="Resume Screening">简历筛选</h4>
+                        </div>
+                        <div class="step-line"></div>
                     </div>
-                </div>
-                <div class="process-item scroll-animate">
-                    <div class="process-number">05</div>
-                    <div class="process-content">
-                        <h3 data-zh="综合面试" data-en="Final Interview">综合面试</h3>
-                        <p data-zh="综合素质与价值观评估" data-en="Comprehensive quality and values assessment">综合素质与价值观评估</p>
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">03</div>
+                        <div class="step-content">
+                            <h4 data-zh="笔试测评" data-en="Assessment">笔试测评</h4>
+                        </div>
+                        <div class="step-line"></div>
                     </div>
-                </div>
-                <div class="process-item scroll-animate">
-                    <div class="process-number">06</div>
-                    <div class="process-content">
-                        <h3 data-zh="Offer发放" data-en="Offer">Offer发放</h3>
-                        <p data-zh="发放录用通知书" data-en="Receive your offer letter">发放录用通知书</p>
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">04</div>
+                        <div class="step-content">
+                            <h4 data-zh="技术面试" data-en="Technical Interview">技术面试</h4>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">05</div>
+                        <div class="step-content">
+                            <h4 data-zh="综合面试" data-en="Final Interview">综合面试</h4>
+                        </div>
+                        <div class="step-line"></div>
+                    </div>
+                    <div class="process-step scroll-animate">
+                        <div class="step-number">06</div>
+                        <div class="step-content">
+                            <h4 data-zh="Offer发放" data-en="Offer">Offer发放</h4>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -497,31 +652,34 @@
         <div class="container">
             <div class="section-header scroll-animate">
                 <span class="section-tag" data-zh="联系我们" data-en="Contact Us">联系我们</span>
-                <h2 class="section-title" data-zh="期待你的加入" data-en="Looking Forward to You">期待你的加入</h2>
+                <h2 class="section-title">
+                    <span data-zh="加入" data-en="Join">加入</span>
+                    <span class="title-highlight">xj-aerospace</span>
+                </h2>
             </div>
-            <div class="contact-content">
+            <div class="contact-grid">
                 <div class="contact-info scroll-animate">
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
                                 <polyline points="22,6 12,13 2,6"/>
                             </svg>
                         </div>
-                        <div class="contact-text">
+                        <div class="contact-content">
                             <span class="contact-label" data-zh="投递邮箱" data-en="Email">投递邮箱</span>
                             <a href="mailto:hr@xj-aerospace.com" class="contact-value">hr@xj-aerospace.com</a>
                         </div>
                     </div>
                     <div class="contact-item">
                         <div class="contact-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
                                 <circle cx="12" cy="12" r="10"/>
                                 <line x1="2" y1="12" x2="22" y2="12"/>
                                 <path d="M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/>
                             </svg>
                         </div>
-                        <div class="contact-text">
+                        <div class="contact-content">
                             <span class="contact-label" data-zh="官方网站" data-en="Website">官方网站</span>
                             <a href="https://xj-aerospace.top" target="_blank" class="contact-value">xj-aerospace.top</a>
                         </div>
@@ -529,19 +687,27 @@
                 </div>
                 <div class="contact-qr scroll-animate">
                     <div class="qr-placeholder">
-                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                            <rect x="3" y="3" width="7" height="7"/>
-                            <rect x="14" y="3" width="7" height="7"/>
-                            <rect x="14" y="14" width="7" height="7"/>
-                            <rect x="3" y="14" width="7" height="7"/>
+                        <svg viewBox="0 0 120 120" fill="none">
+                            <rect width="120" height="120" fill="#0d2847"/>
+                            <rect x="10" y="10" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <rect x="15" y="15" width="20" height="20" fill="currentColor" opacity="0.3"/>
+                            <rect x="80" y="10" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <rect x="85" y="15" width="20" height="20" fill="currentColor" opacity="0.3"/>
+                            <rect x="10" y="80" width="30" height="30" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <rect x="15" y="85" width="20" height="20" fill="currentColor" opacity="0.3"/>
+                            <rect x="50" y="50" width="20" height="20" stroke="currentColor" stroke-width="2" fill="none"/>
+                            <rect x="55" y="55" width="10" height="10" fill="currentColor" opacity="0.5"/>
                         </svg>
-                        <span data-zh="扫码关注" data-en="Scan to Follow">扫码关注</span>
                     </div>
-                    <p data-zh="微信公众号" data-en="WeChat Official Account">微信公众号</p>
+                    <span data-zh="扫码关注公众号" data-en="Scan to Follow">扫码关注公众号</span>
                 </div>
                 <div class="contact-cta scroll-animate">
-                    <a href="mailto:hr@xj-aerospace.com" class="btn btn-primary glow-btn btn-lg" data-zh="立即投递简历" data-en="Apply Now">
-                        立即投递简历
+                    <a href="mailto:hr@xj-aerospace.com" class="btn btn-primary glow-btn btn-lg">
+                        <span data-zh="立即投递简历" data-en="Apply Now">立即投递简历</span>
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 2L11 13"/>
+                            <path d="M22 2l-7 20-4-9-9-4 20-7z"/>
+                        </svg>
                     </a>
                 </div>
             </div>
@@ -553,18 +719,30 @@
         <div class="container">
             <div class="footer-content">
                 <div class="footer-brand">
-                    <span class="logo-text">xjaerospace</span>
+                    <a href="#home" class="footer-logo">
+                        <div class="logo-icon">
+                            <svg viewBox="0 0 40 40" fill="none">
+                                <circle cx="20" cy="20" r="18" stroke="currentColor" stroke-width="1.5"/>
+                                <path d="M20 2 L20 38 M2 20 L38 20" stroke="currentColor" stroke-width="0.5" opacity="0.5"/>
+                                <circle cx="20" cy="20" r="8" stroke="currentColor" stroke-width="1"/>
+                                <path d="M20 8 L24 20 L20 32 L16 20 Z" fill="currentColor" opacity="0.8"/>
+                            </svg>
+                        </div>
+                        <span>xj-aerospace</span>
+                    </a>
                     <p data-zh="探索无界，智造未来" data-en="Explore Beyond Limits. Engineer the Future.">探索无界，智造未来</p>
                 </div>
                 <div class="footer-links">
-                    <a href="#about" data-zh="关于我们" data-en="About">关于我们</a>
-                    <a href="#positions" data-zh="招聘岗位" data-en="Positions">招聘岗位</a>
-                    <a href="#benefits" data-zh="福利待遇" data-en="Benefits">福利待遇</a>
-                    <a href="#contact" data-zh="联系我们" data-en="Contact">联系我们</a>
+                    <a href="#home" data-zh="首页" data-en="Home">首页</a>
+                    <a href="#about" data-zh="关于" data-en="About">关于</a>
+                    <a href="#technology" data-zh="技术" data-en="Technology">技术</a>
+                    <a href="#products" data-zh="产品" data-en="Products">产品</a>
+                    <a href="#careers" data-zh="招聘" data-en="Careers">招聘</a>
+                    <a href="#contact" data-zh="联系" data-en="Contact">联系</a>
                 </div>
             </div>
             <div class="footer-bottom">
-                <p>&copy; 2025 xjaerospace. <span data-zh="保留所有权利" data-en="All rights reserved.">保留所有权利</span></p>
+                <p>&copy; 2025 xj-aerospace. <span data-zh="保留所有权利" data-en="All Rights Reserved">保留所有权利</span></p>
             </div>
         </div>
     </footer>
